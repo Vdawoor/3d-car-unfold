@@ -1,0 +1,28 @@
+.layout {
+  display: grid;
+  grid-template-rows: 56px 1fr;
+  grid-template-columns: 220px 1fr 300px;
+  grid-template-areas:
+    "header header header"
+    "sidebar canvas specpanel";
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.canvas {
+  grid-area: canvas;
+  position: relative;
+}
+
+.specpanel {
+  grid-area: specpanel;
+}
