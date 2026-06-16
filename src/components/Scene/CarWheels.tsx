@@ -46,7 +46,7 @@ function Wheel({ position, side = 1 }: { position: [number, number, number]; sid
 
       {/* RIM LIP — thin ring at the outer edge of the rim face */}
       <mesh rotation={[Math.PI / 2, Math.PI / 2, 0]}>
-        <torusGeometry args={[0.24, 0.012, 12, 48]} />
+        <torusGeometry args={[0.34, 0.012, 12, 48]} />
         <meshStandardMaterial color="#1a1a1a" metalness={0.95} roughness={0.15} />
       </mesh>
 
@@ -125,10 +125,10 @@ function Wheel({ position, side = 1 }: { position: [number, number, number]; sid
 export function CarWheels() {
   return (
     <group>
-      <Wheel position={[0.8, 0.38, 1.2]} side={1} />
-      <Wheel position={[-0.8, 0.38, 1.2]} side={-1} />
-      <Wheel position={[0.8, 0.38, -1.1]} side={1} />
-      <Wheel position={[-0.8, 0.38, -1.1]} side={-1} />
+      <Wheel position={[0.85, 0.35, 1.1]} side={1} />
+      <Wheel position={[-0.85, 0.35, 1.1]} side={-1} />
+      <Wheel position={[0.85, 0.35, -1.2]} side={1} />
+      <Wheel position={[-0.85, 0.35, -1.2]} side={-1} />
     </group>
   );
 }
