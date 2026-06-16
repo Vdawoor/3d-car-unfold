@@ -27,6 +27,8 @@ export interface AnnotationTarget {
   specs: SpecItem[];
   // Title shown at the top of the annotation popup (e.g. "Engine", "Drivetrain")
   groupLabel: string;
+  // If true, draws a straight line instead of a curved arc
+  straight?: boolean;
 }
 
 // Full data structure for each sidebar category (engine, safety, etc.)

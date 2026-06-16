@@ -5,7 +5,7 @@ export function Ground() {
   return (
     <>
       {/* Circular floor plane — rotated to lie flat (X rotation = -90 degrees), receives cast shadows */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.25, 0]} receiveShadow>
         {/* Circle with radius 6, made of 64 segments for smooth edges */}
         <circleGeometry args={[6, 64]} />
         <meshStandardMaterial color="#f0f0f0" roughness={0.8} />

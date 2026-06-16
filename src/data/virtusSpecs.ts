@@ -38,9 +38,9 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Arrow anchored at the engine bay area (front-center of car)
-        position: [0, 0.7, 1.5],
+        position: [0, 0.38, -3],
         // Label floats above-right of the engine bay
-        labelOffset: [1.5, 2.2, 2.0],
+        labelOffset: [1.5, 2.2, -4],
         groupLabel: 'Engine',
         specs: [
           { label: 'Engine Type', value: '1.5L TSI EVO Turbocharged Petrol' },
@@ -50,8 +50,8 @@ export const categories: CategoryData[] = [
       },
       {
         // Second annotation slightly forward/lower — for performance figures
-        position: [0, 0.6, 1.8],
-        labelOffset: [-1.8, 1.8, 2.2],
+        position: [0, 0.38, -3],
+        labelOffset: [-1.5, 2.2, -4],
         groupLabel: 'Performance',
         specs: [
           { label: 'Power Output', value: '150 PS @ 5000-6000 rpm' },
@@ -80,8 +80,8 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Points at the undercarriage/gearbox area (center-low, slightly forward)
-        position: [0, 0.2, 0.5],
-        labelOffset: [2.0, -0.5, 0.5],
+        position: [1, -0.6, -2],
+        labelOffset: [2.0, 2, 0.5],
         groupLabel: 'Drivetrain',
         specs: [
           { label: 'Transmission Type', value: '7-Speed DSG (Dual Clutch Automatic)' },
@@ -103,8 +103,8 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Points at the fuel filler area (rear-left side of the car)
-        position: [-0.85, 0.5, -0.8],
-        labelOffset: [-2.2, 1.5, -1.0],
+        position: [1.4, 0.4, 2.4],
+        labelOffset: [2.2, 1.5, 4.0],
         groupLabel: 'Fuel System',
         specs: [
           { label: 'Fuel Type', value: 'Petrol' },
@@ -129,27 +129,27 @@ export const categories: CategoryData[] = [
     hasArrows: true,
     annotations: [
       {
-        // Points at center of car for overall length reference
-        position: [0, 0.3, 0],
-        labelOffset: [2.5, 0.3, 0],
+        position: [1.55, -0.75, -0.4],
+        labelOffset: [3.5, -0.4, 0],
         groupLabel: 'Length',
+        straight: true,
         specs: [{ label: 'Length', value: '4561 mm' }],
       },
       {
-        // Points at the side (width reference) and top (height reference)
-        position: [0.9, 0.5, 0],
+        position: [0.9, 1.2, 0],
         labelOffset: [2.2, 1.8, 0],
         groupLabel: 'Width & Height',
+        straight: true,
         specs: [
           { label: 'Width', value: '1752 mm' },
           { label: 'Height', value: '1507 mm' },
         ],
       },
       {
-        // Points at wheelbase (distance between front and rear axles)
-        position: [0, 0.2, 0.8],
+        position: [-1.5, -1.0, 2.0],
         labelOffset: [-2.2, -0.3, 0.8],
         groupLabel: 'Wheelbase',
+        straight: true,
         specs: [
           { label: 'Wheelbase', value: '2651 mm' },
           { label: 'Ground Clearance', value: '179 mm' },
@@ -157,8 +157,8 @@ export const categories: CategoryData[] = [
       },
       {
         // Points at trunk area for weight/boot info
-        position: [0, 0.5, -1.6],
-        labelOffset: [0, 2.0, -2.5],
+        position: [0, 0.7, 3.6],
+        labelOffset: [0, 1.0, 4.6],
         groupLabel: 'Weight & Boot',
         specs: [
           { label: 'Kerb Weight', value: '1210 kg' },
@@ -185,8 +185,8 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Points at front-right wheel area
-        position: [0.8, 0.25, 1.2],
-        labelOffset: [2.3, 1.0, 1.5],
+        position: [1.45, -1.0, -2.4],
+        labelOffset: [2.2, -1.5, 0.0],
         groupLabel: 'Front Suspension',
         specs: [
           { label: 'Front Suspension', value: 'McPherson Strut' },
@@ -195,8 +195,8 @@ export const categories: CategoryData[] = [
       },
       {
         // Points at rear-right wheel area
-        position: [0.8, 0.25, -1.1],
-        labelOffset: [2.3, 1.0, -1.5],
+        position: [1.45, -1.0, 2.4],
+        labelOffset: [2.2, -1.5, 4.0],
         groupLabel: 'Rear Suspension',
         specs: [
           { label: 'Rear Suspension', value: 'Torsion Beam' },
@@ -205,8 +205,8 @@ export const categories: CategoryData[] = [
       },
       {
         // Points at front-left wheel for tyre info
-        position: [-0.8, 0.25, 1.2],
-        labelOffset: [-2.3, 0.5, 1.5],
+        position: [-1.5, -1.0, 2.0],
+        labelOffset: [-2.2, -0.3, 0.8],
         groupLabel: 'Tyres',
         specs: [{ label: 'Wheel & Tyre Size', value: '205/55 R16' }],
       },
@@ -228,8 +228,8 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Points at roof/cabin area (crash structure zone)
-        position: [0, 1.1, 0.3],
-        labelOffset: [0, 2.5, 0.3],
+        position: [0.6, 0.6, -1.4],
+        labelOffset: [2.2, 1.5, 0.0],
         groupLabel: 'Crash Safety',
         specs: [
           { label: 'Airbags', value: '6 (Dual Front, Side, Curtain)' },
@@ -238,8 +238,8 @@ export const categories: CategoryData[] = [
       },
       {
         // Points at front-lower (braking/stability systems area)
-        position: [0, 0.3, 1.0],
-        labelOffset: [-2.0, 0.3, 1.5],
+        position: [0, 0.3, -1.0],
+        labelOffset: [-2.0, 0.3, -0.5],
         groupLabel: 'Active Safety',
         specs: [
           { label: 'ABS', value: 'Yes, with EBD' },
@@ -265,7 +265,7 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Points at dashboard/center console area (infotainment screen location)
-        position: [0, 0.9, 0.5],
+        position: [0.3, 0.3, -1.0],
         labelOffset: [2.0, 2.2, 0.5],
         groupLabel: 'Infotainment',
         specs: [
@@ -275,7 +275,7 @@ export const categories: CategoryData[] = [
       },
       {
         // Points at the cabin center (AC vents, seating area)
-        position: [0, 0.8, 0],
+        position: [0.6, 0.0, 1.0],
         labelOffset: [-2.0, 2.2, 0],
         groupLabel: 'Comfort',
         specs: [
@@ -302,8 +302,8 @@ export const categories: CategoryData[] = [
     annotations: [
       {
         // Points at front fascia (headlights area)
-        position: [0, 0.6, 2.0],
-        labelOffset: [0, 1.8, 2.8],
+        position: [-1.2, 0, -3.35],
+        labelOffset: [-3, 1.8, -2.8],
         groupLabel: 'Front',
         specs: [
           { label: 'Headlights', value: 'LED Projector with DRLs' },
@@ -320,8 +320,8 @@ export const categories: CategoryData[] = [
       },
       {
         // Points at wheel/mirror area on the side
-        position: [0.85, 0.25, 0.5],
-        labelOffset: [2.5, 0.5, 0.5],
+        position: [-1.4, -0.25, -2.0],
+        labelOffset: [-3.5, 0.5, -2.5],
         groupLabel: 'Wheels & Mirrors',
         specs: [
           { label: 'Alloy Wheels', value: '16-inch Alloy (GT Design)' },
