@@ -51,7 +51,7 @@ export const categories: CategoryData[] = [
       {
         // Second annotation slightly forward/lower — for performance figures
         position: [0, 0.38, -3],
-        labelOffset: [-1.5, 2.2, -4],
+        labelOffset: [-2.5, 2.2, -2],
         groupLabel: 'Performance',
         specs: [
           { label: 'Power Output', value: '150 PS @ 5000-6000 rpm' },

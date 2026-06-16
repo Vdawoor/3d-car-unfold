@@ -13,7 +13,7 @@ interface SceneCanvasProps {
 export function SceneCanvas({ annotations }: SceneCanvasProps) {
   return (
     <Canvas
-      camera={{ position: [4, 3, 6], fov: 45 }}
+      camera={{ position: [-4, 2, -6], fov: 45 }}
       shadows
       style={{ width: '100%', height: '100%' }}
     >
