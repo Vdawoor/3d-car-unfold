@@ -58,3 +58,31 @@
   text-align: right;
   word-break: break-word;
 }
+
+@media (max-width: 768px) {
+  .panel {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .panelHeader {
+    padding: 10px 12px 8px;
+  }
+
+  .panelTitle {
+    font-size: 13px;
+  }
+
+  .specRow {
+    padding: 8px 12px;
+  }
+
+  .specLabel {
+    font-size: 11px;
+    min-width: 80px;
+  }
+
+  .specValue {
+    font-size: 11px;
+  }
+}

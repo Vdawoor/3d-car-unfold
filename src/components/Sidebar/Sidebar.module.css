@@ -66,3 +66,38 @@
 .categoryBtn.active .arrowBadge {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px;
+    gap: 4px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    max-width: 100vw;
+    scrollbar-width: thin;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+
+  .categoryBtn {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+    width: auto;
+  }
+
+  .arrowBadge {
+    margin-left: 4px;
+  }
+}
