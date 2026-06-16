@@ -29,6 +29,8 @@ export interface AnnotationTarget {
   groupLabel: string;
   // If true, draws a straight line instead of a curved arc
   straight?: boolean;
+  // Additional start points — each gets its own line converging to the same label
+  extraPoints?: [number, number, number][];
 }
 
 // Full data structure for each sidebar category (engine, safety, etc.)

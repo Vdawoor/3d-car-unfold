@@ -21,17 +21,26 @@ export function Annotations({ annotations }: AnnotationsProps) {
   );
 }
 
+function buildLinePoints(
+  start: THREE.Vector3,
+  end: THREE.Vector3,
+  straight?: boolean
+): THREE.Vector3[] {
+  if (straight) return [start, end];
+  const mid = new THREE.Vector3().lerpVectors(start, end, 0.6);
+  mid.y += 0.3;
+  return [start, mid, end];
+}
+
 function AnnotationArrow({ annotation }: { annotation: AnnotationTarget }) {
   const start = new THREE.Vector3(...annotation.position);
   const end = new THREE.Vector3(...annotation.labelOffset);
+  const points = buildLinePoints(start, end, annotation.straight);
 
-  const points = annotation.straight
-    ? [start, end]
-    : (() => {
-        const mid = new THREE.Vector3().lerpVectors(start, end, 0.6);
-        mid.y += 0.3;
-        return [start, mid, end];
-      })();
+  const extraLines = (annotation.extraPoints || []).map((pt) => {
+    const extraStart = new THREE.Vector3(...pt);
+    return buildLinePoints(extraStart, end, annotation.straight);
+  });
 
   return (
     <group>
@@ -40,12 +49,17 @@ function AnnotationArrow({ annotation }: { annotation: AnnotationTarget }) {
         <meshStandardMaterial color="#0066cc" emissive="#0066cc" emissiveIntensity={0.5} />
       </mesh>
 
-      <Line
-        points={points}
-        color="#0066cc"
-        lineWidth={2}
-        dashed={false}
-      />
+      <Line points={points} color="#0066cc" lineWidth={2} dashed={false} />
+
+      {extraLines.map((pts, i) => (
+        <group key={i}>
+          <mesh position={annotation.extraPoints![i]}>
+            <sphereGeometry args={[0.04, 16, 16]} />
+            <meshStandardMaterial color="#0066cc" emissive="#0066cc" emissiveIntensity={0.5} />
+          </mesh>
+          <Line points={pts} color="#0066cc" lineWidth={2} dashed={false} />
+        </group>
+      ))}
 
       <mesh position={annotation.labelOffset}>
         <sphereGeometry args={[0.03, 12, 12]} />

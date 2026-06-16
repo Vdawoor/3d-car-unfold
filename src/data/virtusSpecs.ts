@@ -301,10 +301,10 @@ export const categories: CategoryData[] = [
     hasArrows: true,
     annotations: [
       {
-        // Points at front fascia (headlights area)
         position: [-1.2, 0, -3.35],
-        labelOffset: [-3, 1.8, -2.8],
+        labelOffset: [2.0, 1.0, -4.8],
         groupLabel: 'Front',
+        extraPoints: [[1.2, 0, -3.35]],
         specs: [
           { label: 'Headlights', value: 'LED Projector with DRLs' },
         ],
@@ -319,10 +319,10 @@ export const categories: CategoryData[] = [
         ],
       },
       {
-        // Points at wheel/mirror area on the side
-        position: [-1.4, -0.25, -2.0],
+        position: [-1.4, -1.0, -2.4],
         labelOffset: [-3.5, 0.5, -2.5],
         groupLabel: 'Wheels & Mirrors',
+        extraPoints: [[-1.6, 0.5, -1.4]],
         specs: [
           { label: 'Alloy Wheels', value: '16-inch Alloy (GT Design)' },
           { label: 'Mirrors', value: 'Electrically Adjustable ORVMs with Indicators' },
