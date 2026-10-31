@@ -1,15 +1,15 @@
 import type { AIAgentResponse, SpecCategory } from '../types';
 
-const hasBackend =
-  typeof window !== 'undefined' &&
-  (window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1');
+const API_URL = import.meta.env.VITE_API_URL as string | undefined;
+
+function getGuideUrl(): string {
+  if (API_URL) return `${API_URL}/api/guide`;
+  return '/api/guide';
+}
 
 export async function askAIAgent(userMessage: string): Promise<AIAgentResponse> {
-  if (!hasBackend) return localFallback(userMessage);
-
   try {
-    const res = await fetch('/api/guide', {
+    const res = await fetch(getGuideUrl(), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: userMessage }),
