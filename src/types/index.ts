@@ -33,6 +33,21 @@ export interface AnnotationTarget {
   extraPoints?: [number, number, number][];
 }
 
+export interface CameraTarget {
+  cameraPosition: [number, number, number];
+  lookAt: [number, number, number];
+  highlightPosition: [number, number, number];
+  autoRotate?: boolean;
+}
+
+export interface AIAgentResponse {
+  message: string;
+  cameraPosition: [number, number, number];
+  lookAt: [number, number, number];
+  highlightPosition: [number, number, number];
+  category?: SpecCategory;
+}
+
 // Full data structure for each sidebar category (engine, safety, etc.)
 export interface CategoryData {
   id: SpecCategory;

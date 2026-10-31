@@ -8,6 +8,11 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.layout.panelClosed {
+  grid-template-columns: 220px 1fr 0px;
 }
 
 .header {
@@ -25,11 +30,62 @@
 
 .specpanel {
   grid-area: specpanel;
+  overflow: hidden;
+  transition: opacity 0.25s ease;
+}
+
+.specpanelHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Toggle button pinned to the right edge of the canvas */
+.toggleBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px 10px 6px;
+  border: 1px solid var(--color-border);
+  border-right: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s, color 0.15s;
+  writing-mode: vertical-lr;
+}
+
+.toggleBtn:hover {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.toggleBtn svg {
+  writing-mode: horizontal-tb;
+  flex-shrink: 0;
+}
+
+.toggleLabel {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 180px 1fr 240px;
+  }
+  .layout.panelClosed {
+    grid-template-columns: 180px 1fr 0px;
   }
 }
 
@@ -42,6 +98,12 @@
       "sidebar"
       "canvas"
       "specpanel";
+    transition: none;
+  }
+
+  .layout.panelClosed {
+    grid-template-columns: 1fr;
+    grid-template-rows: 48px auto 1fr 0px;
   }
 
   .canvas {
@@ -57,5 +119,26 @@
   .specpanel {
     max-height: 35vh;
     overflow-y: auto;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+  }
+
+  .specpanelHidden {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .toggleBtn {
+    top: 8px;
+    right: 8px;
+    transform: none;
+    writing-mode: horizontal-tb;
+    padding: 6px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .toggleLabel {
+    writing-mode: horizontal-tb;
   }
 }
