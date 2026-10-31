@@ -1,6 +1,8 @@
 import type { AIAgentResponse, SpecCategory } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL as string | undefined;
+const API_URL = import.meta.env.PROD
+  ? 'https://threed-car-unfold.onrender.com'
+  : 'http://localhost:8000';
 
 function getGuideUrl(): string {
   if (API_URL) return `${API_URL}/api/guide`;

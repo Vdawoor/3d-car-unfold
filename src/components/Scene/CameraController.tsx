@@ -40,9 +40,6 @@ export function CameraController({ target }: CameraControllerProps) {
       controlsRef.current.target.copy(goalLook.current);
       controlsRef.current.update();
       setIsAnimating(false);
-      if (target?.autoRotate !== false) {
-        setShowAutoRotate(true);
-      }
     }
   });
 

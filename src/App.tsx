@@ -26,7 +26,7 @@ function App() {
       cameraPosition: response.cameraPosition,
       lookAt: response.lookAt,
       highlightPosition: response.highlightPosition,
-      autoRotate: true,
+      autoRotate: false,
     });
   }, []);
 
