@@ -1,6 +1,13 @@
 import type { AIAgentResponse, SpecCategory } from '../types';
 
+const hasBackend =
+  typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1');
+
 export async function askAIAgent(userMessage: string): Promise<AIAgentResponse> {
+  if (!hasBackend) return localFallback(userMessage);
+
   try {
     const res = await fetch('/api/guide', {
       method: 'POST',
