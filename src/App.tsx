@@ -3,7 +3,6 @@ import { Layout } from './components/Layout/Layout';
 import { Header } from './components/Header/Header';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { SceneCanvas } from './components/Scene/SceneCanvas';
-import { SpecPanel } from './components/SpecPanel/SpecPanel';
 import { ChatAgent } from './components/ChatAgent/ChatAgent';
 import { categories } from './data/virtusSpecs';
 import type { SpecCategory, CameraTarget, AIAgentResponse } from './types';
@@ -50,7 +49,6 @@ function App() {
           <ChatAgent onResponse={handleAIResponse} />
         </>
       }
-      specpanel={<SpecPanel category={activeCategoryData} />}
     />
   );
 }
