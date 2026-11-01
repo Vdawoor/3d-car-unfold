@@ -1,16 +1,25 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment, Stage } from '@react-three/drei';
+import { Environment, Stage } from '@react-three/drei';
 import { Ground } from './Ground';
 import { Annotations } from './Annotations';
-import type { AnnotationTarget } from '../../types';
+import { CameraController } from './CameraController';
+import { Highlight } from './Highlight';
+import type { AnnotationTarget, CameraTarget } from '../../types';
 import { Car } from '../Car';
 
 interface SceneCanvasProps {
   annotations: AnnotationTarget[];
+  cameraTarget: CameraTarget | null;
 }
 
-export function SceneCanvas({ annotations }: SceneCanvasProps) {
+export function SceneCanvas({ annotations, cameraTarget }: SceneCanvasProps) {
+  const showHighlight =
+    cameraTarget &&
+    (cameraTarget.highlightPosition[0] !== 0 ||
+      cameraTarget.highlightPosition[1] !== 0 ||
+      cameraTarget.highlightPosition[2] !== 0);
+
   return (
     <Canvas
       camera={{ position: [-4, 2, -6], fov: 45 }}
@@ -37,15 +46,11 @@ export function SceneCanvas({ annotations }: SceneCanvasProps) {
 
       <Annotations annotations={annotations} />
 
+      {showHighlight && <Highlight position={cameraTarget.highlightPosition} />}
+
       <Ground />
 
-      <OrbitControls
-        enableDamping
-        dampingFactor={0.05}
-        minDistance={2}
-        maxDistance={15}
-        maxPolarAngle={Math.PI / 2.1}
-      />
+      <CameraController target={cameraTarget} />
     </Canvas>
   );
 }
