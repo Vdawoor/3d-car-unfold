@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import GuideRequest, GuideResponse
 from openai import OpenAI
 import os
+import json
 import traceback
 from dotenv import load_dotenv
 
@@ -143,15 +144,16 @@ async def guide(payload: GuideRequest):
         raise HTTPException(status_code=400, detail="Query is required.")
 
     try:
-        response = client.chat.completions.parse(
+        response = client.chat.completions.create(
             model=os.getenv("MODEL_NAME"),
-            response_format=GuideResponse,
+            response_format={"type": "json_object"},
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": SYSTEM_PROMPT + "\n\nRespond ONLY with valid JSON matching this schema: " + GuideResponse.model_json_schema().__repr__()},
                 {"role": "user", "content": payload.query},
             ],
         )
-        return response.choices[0].message.parsed
+        data = json.loads(response.choices[0].message.content)
+        return GuideResponse(**data)
 
     except Exception as e:
         traceback.print_exc()
