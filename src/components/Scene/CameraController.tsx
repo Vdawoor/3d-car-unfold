@@ -48,9 +48,9 @@ export function CameraController({ target }: CameraControllerProps) {
       ref={controlsRef}
       enableDamping
       dampingFactor={0.05}
-      minDistance={2}
+      minDistance={1.5}
       maxDistance={15}
-      maxPolarAngle={Math.PI / 2.1}
+      maxPolarAngle={Math.PI / 1.8}
       autoRotate={showAutoRotate}
       autoRotateSpeed={0.6}
     />

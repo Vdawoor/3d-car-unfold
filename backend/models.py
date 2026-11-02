@@ -8,7 +8,7 @@ class GuideRequest(BaseModel):
 
 class GuideResponse(BaseModel):
     message: str = Field(
-        description="A brief, friendly 1-2 sentence explanation about the car component and where it is located."
+        description="A conversational 2-3 sentence explanation about the car component that includes specific numeric specs (measurements, capacities, power figures, prices, ratings) whenever relevant."
     )
     cameraPosition: List[float] = Field(
         description="[x, y, z] coordinates where the camera should be placed for the best view of the component."
